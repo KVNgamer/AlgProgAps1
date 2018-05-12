@@ -16,6 +16,8 @@ public class quicksort {
     public static int Partition(int[] dado, int anterior, int proximo){
         int pivot = dado[anterior];
         while(true){
+            System.out.println("F - Pivot "+pivot+"- anterior "+anterior+"- proximo " +proximo);
+
             while(dado[anterior] < pivot){
                 anterior++;
             }
@@ -41,9 +43,5 @@ public class quicksort {
             if(pivot + 1 < proximo)
                 QuickSort_Recursive(arr, pivot + 1, proximo);
         }
-    }
-    
-   
-    
-    
+    }    
 }

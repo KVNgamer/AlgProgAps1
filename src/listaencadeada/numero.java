@@ -15,13 +15,19 @@ public class numero {
     numero(int busca) {
         numero=busca;
     }
+
+    numero() {       
+    
+    }
     
     public int getNumero(){
         return this.numero;
     }
+    
     public void setNumero(int numero){
         this.numero=numero;
     }
+    
     @Override
 	public String toString() {
 		return ""+ numero;
