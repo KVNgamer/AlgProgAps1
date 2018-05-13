@@ -4,19 +4,26 @@
  * and open the template in the editor.
  */
 package listaencadeada;
-
-import listaencadeada.ListaEncadeada.node;
-
 /**
  *
  * @author KEVIN
  */
-public class quicksort {
-        
+public class quicksort {//metodo eficiente;
+    
+    
+    public static void QuickSort_Recursive(int[] arr, int anterior, int proximo){
+        if(anterior < proximo){
+            int pivot = Partition(arr, anterior, proximo);
+            if(pivot > 1)
+                QuickSort_Recursive(arr, anterior, pivot - 1);
+            if(pivot + 1 < proximo)
+                QuickSort_Recursive(arr, pivot + 1, proximo);
+        }
+    }  
     public static int Partition(int[] dado, int anterior, int proximo){
         int pivot = dado[anterior];
         while(true){
-            System.out.println("F - Pivot "+pivot+"- anterior "+anterior+"- proximo " +proximo);
+            //System.out.println("F - Pivot "+pivot+"- anterior "+anterior+"- proximo " +proximo);
 
             while(dado[anterior] < pivot){
                 anterior++;
@@ -33,15 +40,5 @@ public class quicksort {
                 return proximo;
             }
         }
-    }
-
-    public static void QuickSort_Recursive(int[] arr, int anterior, int proximo){
-        if(anterior < proximo){
-            int pivot = Partition(arr, anterior, proximo);
-            if(pivot > 1)
-                QuickSort_Recursive(arr, anterior, pivot - 1);
-            if(pivot + 1 < proximo)
-                QuickSort_Recursive(arr, pivot + 1, proximo);
-        }
-    }    
+    }  
 }

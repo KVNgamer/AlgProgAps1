@@ -5,6 +5,8 @@
  */
 package listaencadeada;
 
+import NovaLista.ListaEncadeadaK;
+
 
 
 /*
@@ -14,21 +16,27 @@ package listaencadeada;
  */
 
 public class main {
-    static ListaEncadeada<numero> listaNumero = new ListaEncadeada<numero>();
+    //static ListaEncadeada<numero> listaNumero = new ListaEncadeada<numero>();
+    public static ListaEncadeadaK<numero> listaNumeroK = new ListaEncadeadaK<numero>();
+    public static ListaEncadeadaK<numero> listaNumeroK2 = new ListaEncadeadaK<numero>();
      
-    
-    public static void main(String[] args) {
-        //lokurada1();
-        testeLista();
-        listaNumero.mostraLista(); 
-        listaNumero.QuickSort_Recursivo_Encadeado_test(listaNumero.getHead(),listaNumero.getTail());
-        //QuickSorQuickSort_Recursivo_Encadeado_testt_Recursivo_Encadeado(listaNumero.getFirst(),listaNumero.getLast());
-        listaNumero.mostraLista();
+    public static void main(String[] args) {        
+        //Test_Quick();
+        //Test_Bubble();
+        testeListaK2();
+        listaNumeroK2.mostraLista();
+        listaNumeroK2=ListaEncadeadaK.bubble_sort(listaNumeroK2);
+        listaNumeroK2.mostraLista();
         
-        
+        testeListaK();
+        listaNumeroK.mostraLista();
+        System.out.print("quick_sort");
+        ListaEncadeadaK.quick_sort(listaNumeroK.getPrimeiro(), listaNumeroK.getFim());
+        listaNumeroK.mostraLista();
+  
     }
      
-    public static void lokurada1(){
+    public static void Test_Quick(){
         int[] dado = { 1,3,4,8,6,2,7,5,9 };
         int max = 9;
         
@@ -37,7 +45,7 @@ public class main {
                 if(i!=max-1)
                 System.out.print(" - ");
             }
-        System.out.println("QuickSort");
+        System.out.println("\nQuickSort com VETOR");
 
         quicksort.QuickSort_Recursive(dado, 0, max-1);
         
@@ -47,26 +55,47 @@ public class main {
                 if(i!=max-1)
                 System.out.print(" - ");
             }
+                System.out.println("\n");
+    }    
+    
+    public static void Test_Bubble(){
+        int[] dado = { 1,3,4,8,6,2,7,5,9 };
+        int max = 9;
+        
+           for (int i = 0; i < max; i++){
+                System.out.print(dado[i]);
+                if(i!=max-1)
+                System.out.print(" - ");
+            }
+        System.out.println("\nBubbleSort COM VETor");
+
+        dado=bubbleSort.bubble_Sort(dado);
+        
+        
+            for (int i = 0; i < max; i++){
+                System.out.print(dado[i]);
+                if(i!=max-1)
+                System.out.print(" - ");
+            }
                 System.out.println();
-    }     
+    }
      
-    private static void testeLista() {
-        int[] dado = { 8,3,4,9,6,2,7,5,1 };        
-        for(int i=0;i < dado.length;i++){
-            numero numero =new numero(dado[i]);            
-            listaNumero.append(numero);            
+    public ListaEncadeadaK getLista(){
+        return this.listaNumeroK;
+    }
+    
+    private static void testeListaK() {
+        int[] dado = { 9,3,4,1,6,8,7,5,2 };  
+        for(int i=0;i < dado.length;i++){                        
+            listaNumeroK.addFim(dado[i]);            
         }              
     }
-
-    private static void quick() {
-        System.out.println("QuickSort");
-        ListaEncadeada.QuickSort_Recursivo_Encadeado(listaNumero.getFirst(),listaNumero.getLast());        
-        listaNumero.mostraLista();
-        System.out.println();
-    }     
     
-    public ListaEncadeada getLista(){
-        return this.listaNumero;
+    private static void testeListaK2() {
+        int[] dado = { 9,3,4,1,6,8,7,5,2 };  
+        for(int i=0;i < dado.length;i++){                        
+            listaNumeroK2.addFim(dado[i]);            
+        }              
     }
     
 }

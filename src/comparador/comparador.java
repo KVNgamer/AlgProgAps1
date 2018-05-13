@@ -5,10 +5,9 @@
  */
 package comparador;
 
+import NovaLista.no;
 import java.util.Comparator;
-import listaencadeada.ListaEncadeada.node;
 import listaencadeada.numero;
-
 /**
  *
  * @author KEVIN
@@ -21,7 +20,7 @@ public class comparador  implements Comparator<numero> {
        }
        return -1;
 }
-      public int compare_test(node o1, node o2) {
+      public int compare_test(no o1, no o2) {
        if( (int)o1.getDado()==(int)o2.getDado()) {
     	   return 0;
        }
